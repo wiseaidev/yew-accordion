@@ -5,10 +5,11 @@
 [![Crates.io Downloads](https://img.shields.io/crates/d/yew-accordion)](https://crates.io/crates/yew-accordion)
 ![Crates.io License](https://img.shields.io/crates/l/yew-accordion)
 ![Rust](https://img.shields.io/badge/rust-stable-orange)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e8246c00-9789-4483-bcd4-b500eefa6f6a/deploy-status)](https://yew-accordion.netlify.app/)
 
 ---
 
-![Demo](https://github.com/wiseaidev/yew-accordion/assets/62179149/0f4b79bf-09b7-48a1-a671-7ef0a847a88e)
+[![Demo](https://github.com/wiseaidev/yew-accordion/assets/62179149/0f4b79bf-09b7-48a1-a671-7ef0a847a88e)](https://yew-accordion.netlify.app/)
 
 ---
 
