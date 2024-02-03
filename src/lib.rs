@@ -1,3 +1,83 @@
+#![doc(
+    html_logo_url = "https://github.com/next-rs/yew-accordion/assets/62179149/48fa7fe4-90a1-4314-801b-49389cebf33e",
+    html_favicon_url = "https://github.com/next-rs/yew-accordion/assets/62179149/05482d9e-3bb3-49c2-9d3e-26aa9c12d936"
+)]
+
+//! # Yew Accordion - Documentation
+//!
+//! Welcome to the official Yew Accordion documentation. This library
+//! provides a customizable accordion component for your Yew applications.
+//!
+//! ## Usage
+//!
+//! To use the Yew Accordion library, add the following dependency to your `Cargo.toml` file:
+//!
+//! ```sh
+//! cargo add yew-accordion
+//! ```
+//!
+//! To integrate the library into your Yew application, you can use the `Accordion`, `AccordionItem`,
+//! and `AccordionButton` components. Here's a simple example of how to use them:
+//!
+//! ```rust
+//! use yew::prelude::*;
+//! use yew_accordion::{Accordion, AccordionItem, AccordionButton};
+//!
+//! // Your Yew component structure here...
+//!
+//! #[function_component]
+//! pub fn MyAccordionComponent() -> Html {
+//!     // Your component logic here...
+//!
+//!     html! {
+//!         <Accordion
+//!             expanded_element={html! {<AccordionButton class={"bg-blue-500 text-white p-2 rounded"}>{ "Hide -" }</AccordionButton>}}
+//!             collapsed_element={html! {<AccordionButton class={"bg-green-500 text-white p-2 rounded"}>{ "Show +" }</AccordionButton>}}
+//!             size="sm"
+//!             aria_controls="example-accordion"
+//!             container_class="my-custom-class bg-gray-800 p-4 rounded border border-gray-700"
+//!             expanded_element_class="my-expanded-class bg-gradient-to-r from-blue-700 to-blue-500 text-white p-2 rounded"
+//!             collapsed_element_class="my-collapsed-class bg-gradient-to-r from-green-700 to-green-500 text-white p-2 rounded"
+//!             content_container_class="my-content-class bg-gray-900 p-4 rounded border-t border-gray-700"
+//!         >
+//!             <ul>
+//!                 <AccordionItem
+//!                     item_class="my-list-item-class border-b p-2 hover:bg-gray-700 transition duration-300 ease-in-out"
+//!                 >{ "Item 1" }</AccordionItem>
+//!                 <AccordionItem
+//!                     item_class="my-list-item-class border-b p-2 hover:bg-gray-700 transition duration-300 ease-in-out"
+//!                 >{ "Item 2" }</AccordionItem>
+//!                 <AccordionItem
+//!                     item_class="my-list-item-class p-2 hover:bg-gray-700 transition duration-300 ease-in-out"
+//!                 >{ "Item 3" }</AccordionItem>
+//!             </ul>
+//!         </Accordion>
+//!     }
+//! }
+//! ```
+//!
+//! For more detailed information, check the [examples] provided in the library.
+//!
+//! [examples]: https://github.com/next-rs/yew-accordion/tree/main/examples
+//!
+//! ## Configuration
+//!
+//! Yew Accordion allows you to customize various aspects of the accordion component through the
+//! `AccordionProps`, `AccordionItemProps`, and `AccordionButtonProps` structures. You can adjust
+//! properties such as size, ARIA controls, and custom classes. Refer to the respective documentation
+//! for detailed configuration options.
+//!
+//! ## Contribution
+//!
+//! If you encounter any issues or have suggestions for improvements, feel free to contribute
+//! to the [GitHub repository](https://github.com/next-rs/yew-accordion). We appreciate your feedback
+//! and involvement in making Yew Accordion better!
+//!
+//! ## Acknowledgments
+//!
+//! Special thanks to the Yew community and contributors for such an amazing framework.
+//!
+
 use yew::prelude::*;
 
 /// Properties for the Accordion component.

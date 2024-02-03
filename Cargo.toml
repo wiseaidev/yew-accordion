@@ -1,24 +1,27 @@
 [package]
 name = "yew-accordion"
-version = "0.1.0"
+version = "0.1.1"
 description = "🎵 A simple and flexible accordion component for the Yew framework."
 license = "MIT"
-repository = "https://github.com/wiseaidev/yew-accordion"
-homepage = "https://github.com/wiseaidev/yew-accordion"
+repository = "https://github.com/next-rs/yew-accordion"
+homepage = "https://github.com/next-rs/yew-accordion"
 documentation = "https://docs.rs/yew-accordion/"
 authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
 edition = "2021"
 exclude = ["/examples"]
 keywords = ["yew", "rust", "accordion", "yew-accordion"]
-categories = ["web-programming"]
+categories = ["web-programming", "no-std"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-yew = { version = "0.21.0", features = ["csr"] }
+yew = "0.21.0"
 
 [profile.release]
 codegen-units = 1
 opt-level = "z"
 lto = "thin"
 strip = "symbols"
+
+[badges]
+maintenance = { status = "actively-developed" }
