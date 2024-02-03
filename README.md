@@ -1,6 +1,7 @@
 # 🎵 Yew Accordion
 
 [![Crates.io](https://img.shields.io/crates/v/yew-accordion)](https://crates.io/crates/yew-accordion)
+[![Docs](https://docs.rs/yew-accordion/badge.svg)](https://docs.rs/yew-accordion)
 [![Crates.io Downloads](https://img.shields.io/crates/d/yew-accordion)](https://crates.io/crates/yew-accordion)
 ![Crates.io License](https://img.shields.io/crates/l/yew-accordion)
 ![Rust](https://img.shields.io/badge/rust-stable-orange)
