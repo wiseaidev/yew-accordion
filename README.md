@@ -1,111 +1,58 @@
-# 🎵 Yew Accordion
+<div align="center">
 
-[![Crates.io](https://img.shields.io/crates/v/yew-accordion)](https://crates.io/crates/yew-accordion)
-[![Docs](https://docs.rs/yew-accordion/badge.svg)](https://docs.rs/yew-accordion)
-[![Crates.io Downloads](https://img.shields.io/crates/d/yew-accordion)](https://crates.io/crates/yew-accordion)
-![Crates.io License](https://img.shields.io/crates/l/yew-accordion)
-![Rust](https://img.shields.io/badge/rust-stable-orange)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e8246c00-9789-4483-bcd4-b500eefa6f6a/deploy-status)](https://yew-accordion.netlify.app/)
+# 🪶 Accordion RS
 
----
+[![Crates.io](https://img.shields.io/crates/v/accordion-rs)](https://crates.io/crates/accordion-rs)
+[![Crates.io Downloads](https://img.shields.io/crates/d/accordion-rs)](https://crates.io/crates/accordion-rs)
+![Crates.io License](https://img.shields.io/crates/l/accordion-rs)
+[![made-with-rust](https://img.shields.io/badge/Made%20with-Rust-1f425f.svg?logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![Rust](https://img.shields.io/badge/Rust-1.79%2B-blue.svg)](https://www.rust-lang.org)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/wiseaidev)
 
-[![Demo](https://github.com/wiseaidev/yew-accordion/assets/62179149/0f4b79bf-09b7-48a1-a671-7ef0a847a88e)](https://yew-accordion.netlify.app/)
+[![Join our Discord](https://dcbadge.limes.pink/api/server/b5JbvHW5nv)](https://discord.gg/b5JbvHW5nv)
 
----
+![logo](./assets/logo.webp)
 
-## 📜 Introduction
+</div>
 
-Yew Accordion is a simple and flexible accordion component for the Yew framework. It allows you to create collapsible content sections easily.
+## 🎬 Demo
 
-## 🤔 Why is this Component Useful?
+![accordion-rs-demo](./assets/demo.gif)
 
-The Accordion component offers several benefits to enhance your web application:
+## 📜 Intro
 
-1. 🌐 Customization: Tailor the appearance and behavior of the accordion to suit your application's design.
+Accordion RS is a highly customizable accordion component designed for Wasm-based frameworks like **Yew**, **Dioxus**, and **Leptos**. Easily create interactive, collapsible sections with rich behaviors, smooth transitions, and complete styling control.
 
-1. 🚀 Responsive Design: Ensures optimal viewing and navigation across various devices and screen sizes.
+## 🤔 Why Use Accordion-RS?
 
-1. 💬 Easy Integration: Seamless integration into Yew projects with minimal setup and configuration.
+The following are some reasons why Accordion RS is a fantastic addition to your Wasm-based projects:
 
-## ⚙️ Installation
+1. **🎨 Customizable Content**: Define separate content for expanded and collapsed states.
+1. **⚡ Smooth Animations**: Control the transition speed and style of the opening and closing actions.
+1. **🔄 Callbacks**: Attach callbacks to detect when the accordion opens or closes, giving you full control of state transitions.
+1. **🧑‍💻 Easy Integration**: Works seamlessly with modern Wasm frameworks like Yew, Dioxus, and Leptos.
+1. **🧩 Accessibility**: Optionally include ARIA attributes to make your accordion accessible to screen readers.
 
-Integrating Yew Accordion into your Yew project is a straightforward process. Follow these steps:
+## Yew Usage
 
-1. Make sure you have Yew set up in your project. If not, refer to the [Yew documentation](https://yew.rs/docs/getting-started/introduction) for installation instructions.
+Refer to [our guide](YEW.md) to integrate this component into your Yew app.
 
-1. Install the library using your preferred package manager:
+## 🧬 Dioxus Usage (TODO)
 
-   ```bash
-   $ cargo add yew-accordion
-   ```
+Refer to [our guide](DIOXUS.md) to integrate this component into your Dioxus app.
 
-1. Start using the Accordion component to enhance your application's content organization.
+## 🌱 Leptos Usage (TODO)
 
-## 🛠️ Usage
+Refer to [our guide](LEPTOS.md) to integrate this component into your Leptos app.
 
-Incorporating Yew Accordion into your application is easy. Follow these steps:
+## 🤝 Contributions
 
-1. Import the Accordion component into your Yew project:
+Contributions are welcome! Whether it's bug fixes, feature requests, or examples, we would love your help to make Accordion RS better.
 
-   ```rust
-   use yew::prelude::*;
-   use yew_accordion::{Accordion, AccordionButton, AccordionItem};
-
-   #[function_component(App)]
-   pub fn app() -> Html {
-       html! {
-           <Accordion
-               expanded_element={html! {<AccordionButton class={"bg-blue-500 text-white p-2 rounded"}>{ "Hide -" }</AccordionButton>}}
-               collapsed_element={html! {<AccordionButton class={"bg-green-500 text-white p-2 rounded"}>{ "Show +" }</AccordionButton>}}
-               size="sm"
-               aria_controls="example-accordion"
-               container_class="my-custom-class bg-gray-800 p-4 rounded border border-gray-700"
-               expanded_element_class="my-expanded-class bg-gradient-to-r from-blue-700 to-blue-500 text-white p-2 rounded"
-               collapsed_element_class="my-collapsed-class bg-gradient-to-r from-green-700 to-green-500 text-white p-2 rounded"
-               content_container_class="my-content-class bg-gray-900 p-4 rounded border-t border-gray-700"
-           >
-               <ul>
-                   <AccordionItem
-                       item_class="my-list-item-class border-b p-2 hover:bg-gray-700 transition duration-300 ease-in-out"
-                   >{ "Item 1" }</AccordionItem>
-                   <AccordionItem
-                       item_class="my-list-item-class border-b p-2 hover:bg-gray-700 transition duration-300 ease-in-out"
-                   >{ "Item 2" }</AccordionItem>
-                   <AccordionItem
-                       item_class="my-list-item-class p-2 hover:bg-gray-700 transition duration-300 ease-in-out"
-                   >{ "Item 3" }</AccordionItem>
-               </ul>
-           </Accordion>
-       }
-   }
-   ```
-
-1. Customize the Accordion appearance and behavior using provided props.
-
-1. Enjoy an enhanced content organization experience with Yew Accordion.
-
-## 🔧 Props
-
-| Name                   | Type            | Default Value       | Description                                       |
-| ---------------------- | --------------- | ------------------- | ------------------------------------------------- |
-| `expanded_element`     | `Html`          | `Html::default()`   | Content to be displayed when the accordion is expanded. |
-| `collapsed_element`    | `Html`          | `Html::default()`   | Content to be displayed when the accordion is collapsed. |
-| `children`             | `Html`          | `Html::default()`   | Child elements within the accordion.               |
-| `size`                 | `&'static str`  | `""`                | Size of the accordion. Possible values: "sm", "md", "lg". |
-| `aria_controls`        | `&'static str`  | `""`                | ARIA controls attribute for accessibility.        |
-| `container_class`      | `&'static str`  | `""`                | Class for the container element.        |
-| `expanded_element_class` | `&'static str` | `""`               | Class for the expanded element.        |
-| `collapsed_element_class` | `&'static str` | `""`              | Class for the collapsed element.       |
-| `content_container_class` | `&'static str` | `""`              | Class for the content container.       |
-
-## 📙 Examples
-
-If you're curious about how to use it with different styling or additional features, you can check out the [examples folder](examples/tailwind) for more information.
-
-## 🤝 Contribution
-
-We welcome contributions from the community to enhance this component. Feel free to open issues, submit pull requests, or provide feedback. Let's collaborate to make content organization in Yew even more straightforward and interactive!
+1. Fork the repository.
+1. Create a new branch for your feature/bugfix.
+1. Submit a pull request for review.
 
 ## 📜 License
 
-Yew Accordion is licensed under the `MIT` License, allowing you to use, modify, and distribute it freely. Refer to the [`LICENSE`](LICENSE) file for more details.
+Accordion RS is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this library in your projects.
