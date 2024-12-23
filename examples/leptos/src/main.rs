@@ -29,7 +29,7 @@ pub fn Home() -> impl IntoView {
 
     view! {
         <div class="m-6 min-h-screen flex flex-col items-center justify-center">
-            <h1 class="text-3xl font-bold mb-8 text-white">{ "Accordion RS Leptos Examples (WIP)" }</h1>
+            <h1 class="text-3xl font-bold mb-8 text-white">{ "Accordion RS Leptos Examples" }</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
                 // Default Accordion
