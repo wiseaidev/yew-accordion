@@ -95,16 +95,17 @@ use leptos::prelude::*;
 /// ## Accordion with Callbacks
 /// ```rust
 /// use leptos::prelude::*;
+/// use leptos::logging::log;
 /// use accordion_rs::leptos::{Accordion, List, Item};
 ///
 /// #[component]
 /// pub fn App() -> impl IntoView {
 ///     let expanded = signal(false);
 ///
-///     let will_open = move || log::info!("Accordion is about to open.");
-///     let did_open = move || log::info!("Accordion has opened.");
-///     let will_close = move || log::info!("Accordion is about to close.");
-///     let did_close = move || log::info!("Accordion has closed.");
+///     let will_open = move || log!("Accordion is about to open.");
+///     let did_open = move || log!("Accordion has opened.");
+///     let will_close = move || log!("Accordion is about to close.");
+///     let did_close = move || log!("Accordion has closed.");
 ///
 ///     view! {
 ///         <Accordion
@@ -159,7 +160,7 @@ pub fn Accordion(
     /// Child elements inside the accordion.
     ///
     /// These are additional elements that are rendered as part of the accordion's body.
-    children: Children,
+    children: ChildrenFn,
 
     /// Size of the accordion.
     ///
@@ -305,31 +306,19 @@ pub fn Accordion(
                     }
                 }}
             </div>
-            // TODO: show children only on expand like so. Butt, there is a limitation in the current Children Type. File an Issue!
-            // <Show when=move || expand.0.get()>
-            //     <div
-            //         id=aria_controls
-            //         class=content_class
-            //         style=format!(
-            //             "overflow: hidden; transition: all {}ms; {}",
-            //             duration,
-            //             content_style
-            //         )
-            //     >
-            //         {children()}
-            //     </div>
-            // </Show>
-            <div
-                id=aria_controls
-                class=content_class
-                style=format!(
-                    "overflow: hidden; transition: all {}ms; {}",
-                    duration,
-                    content_style
-                )
-            >
-                {children()}
-            </div>
+            <Show when=move || expand.0.get() clone:children>
+                <div
+                    id=aria_controls
+                    class=content_class
+                    style=format!(
+                        "overflow: hidden; transition: all {}ms; {}",
+                        duration,
+                        content_style
+                    )
+                >
+                    {children()}
+                </div>
+            </Show>
         </div>
     }
 }
