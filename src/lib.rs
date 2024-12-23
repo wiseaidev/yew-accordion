@@ -13,4 +13,7 @@ pub mod yew;
 #[cfg(feature = "dio")]
 pub mod dioxus;
 
+#[cfg(feature = "lep")]
+pub mod leptos;
+
 pub use common::{Align, Size};

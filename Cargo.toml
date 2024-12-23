@@ -17,10 +17,12 @@ exclude = ["assets", "examples"]
 [dependencies]
 yew = { version = "0.21.0", default-features = false, optional = true }
 dioxus = { version = "0.6.1", optional = true }
+leptos = { version = "0.7.2", optional = true }
 
 [features]
 yew = ["dep:yew"]
 dio = ["dioxus"]
+lep = ["leptos"]
 
 [profile.release]
 opt-level = "z"

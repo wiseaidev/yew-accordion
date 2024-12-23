@@ -23,7 +23,7 @@
 | --- | --- |
 | Yew | [![Netlify Status](https://api.netlify.com/api/v1/badges/87876941-3a23-4853-b33c-df29645508fd/deploy-status)](https://accordion-rs.netlify.app) |
 | Dioxus | [![Netlify Status](https://api.netlify.com/api/v1/badges/6affd84e-b9ce-4aa7-af7c-9b70152d5266/deploy-status)](https://accordion-rs-dioxus.netlify.app) |
-| Leptos | TODO |
+| Leptos | [![Netlify Status](https://api.netlify.com/api/v1/badges/32e5c113-fa51-405a-9125-cc135ab2d139/deploy-status)](https://accordion-rs-leptos.netlify.app) |
 
 ## 📜 Intro
 
@@ -47,7 +47,7 @@ Refer to [our guide](YEW.md) to integrate this component into your Yew app.
 
 Refer to [our guide](DIOXUS.md) to integrate this component into your Dioxus app.
 
-## 🌱 Leptos Usage (TODO)
+## 🌱 Leptos Usage
 
 Refer to [our guide](LEPTOS.md) to integrate this component into your Leptos app.
 
