@@ -1,60 +1,53 @@
-# Y Accordion RS Yew Usage
+## 🧬 Accordion RS Dioxus Usage
 
 Adding Accordion RS to your project is simple:
 
-1. Make sure your project is set up with **Yew**. Refer to their [Getting Started Guide](https://yew.rs/docs/getting-started/introduction) for setup instructions.
+1. Make sure your project is set up with **Dioxus**. Refer to the [Dioxus Getting Started Guide](https://dioxuslabs.com/learn/0.6/getting_started) for setup instructions.
 
 1. Add the Accordion component to your dependencies by including it in your `Cargo.toml` file.
 
    ```sh
-   cargo add accordion-rs --features=yew
+   cargo add accordion-rs --features=dio
    ```
 
-1. Import the `Accordion` component into your Yew component and start using it in your app.
+1. Import the `Accordion` component into your Dioxus component and start using it in your app.
 
 ## 🛠️ Usage
 
-Incorporating Yew Accordion into your application is easy. Follow these steps:
+Incorporating the Accordion component into your application is easy. Follow these steps:
 
-1. Import the Accordion component into your Yew project:
+1. Import the Accordion component into your Dioxus project:
 
    ```rust
-   use yew::prelude::*;
-   use accordion_rs::yew::Accordion;
+   use dioxus::prelude::*;
+   use accordion_rs::dioxus::Accordion;
    ```
 
-1. Define the accordion sections and use the Accordion component in your Yew component:
+1. Define the accordion sections and use the Accordion component in your Dioxus app:
 
    ```rust
-   use accordion_rs::yew::{Accordion, Item, List};
+   use accordion_rs::dioxus::{Accordion, Item, List};
    use accordion_rs::{Size, Align};
-   use yew::prelude::*;
+   use dioxus::prelude::*;
 
-   #[function_component(App)]
-   pub fn app() -> Html {
-       let on_will_open = Callback::from(|_| log::info!("Accordion will open!"));
-       let on_did_open = Callback::from(|_| log::info!("Accordion did open!"));
-       let on_will_close = Callback::from(|_| log::info!("Accordion will close!"));
-       let on_did_close = Callback::from(|_| log::info!("Accordion did close!"));
-       html! {
-           <Accordion
-               size={Size::XLarge}
-               expanded={html! { <h3>{ "Accordion Expanded" }</h3> }}
-               collapsed={html! { <h3>{ "Accordion Collapsed" }</h3> }}
-               class="bg-gray-900 text-gray-300 border border-gray-700 p-4 rounded-lg"
-               expanded_class="text-white bg-gray-800"
-               collapsed_class="text-gray-400 bg-gray-800"
-               did_open={on_did_open.clone()}
-               will_open={on_will_open.clone()}
-               did_close={on_did_close.clone()}
-               will_close={on_will_close.clone()}
-           >
-               <List>
-                   <Item align={Align::Left}>{ "Item 1 - Left" }</Item>
-                   <Item align={Align::Right}>{ "Item 2 - Right" }</Item>
-               </List>
-           </Accordion>
-       }
+   pub fn app() -> Element {
+       let expand = use_signal(|| false);
+
+       rsx!(
+           Accordion {
+               expand: expand,
+               size: Size::XLarge,
+               expanded: rsx!(div { "Accordion Expanded" }),
+               collapsed: rsx!(div { "Accordion Collapsed" }),
+               class: "bg-gray-900 text-gray-300 border border-gray-700 p-4 rounded-lg",
+               expanded_class: "text-white bg-gray-800",
+               collapsed_class: "text-gray-400 bg-gray-800",
+               List {
+                   Item { align: Align::Left, "Item 1 - Left" }
+                   Item { align: Align::Right, "Item 2 - Right" }
+               }
+           }
+       )
    }
    ```
 
@@ -62,14 +55,14 @@ Incorporating Yew Accordion into your application is easy. Follow these steps:
 
 ### Main Props
 
-| Property    | Type                   | Description                                                                     | Default         |
-| ----------- | ---------------------- | ------------------------------------------------------------------------------- | --------------- |
-| `expand`    | `UseStateHandle<bool>` | State handle managing whether the accordion is initially expanded or collapsed. | `false`         |
-| `expanded`  | `Html`                 | Content to display when the accordion is expanded.                              | `""`            |
-| `collapsed` | `Html`                 | Content to display when the accordion is collapsed.                             | `""`            |
-| `children`  | `Html`                 | Child elements displayed within the accordion container.                        | `""`            |
-| `size`      | `Size`                 | Size of the accordion (`"small"`, `"medium"`, `"large"`, etc.).                 | `Size::XXLarge` |
-| `duration`  | `u64`                  | Animation duration for expand/collapse transitions, in milliseconds.            | `600`           |
+| Property    | Type           | Description                                                               | Default         |
+| ----------- | -------------- | ------------------------------------------------------------------------- | --------------- |
+| `expand`    | `Signal<bool>` | Signal managing whether the accordion is initially expanded or collapsed. | `false`         |
+| `expanded`  | `Element`      | Content to display when the accordion is expanded.                        | `""`            |
+| `collapsed` | `Element`      | Content to display when the accordion is collapsed.                       | `""`            |
+| `children`  | `Element`      | Child elements displayed within the accordion container.                  | `""`            |
+| `size`      | `Size`         | Size of the accordion (`"small"`, `"medium"`, `"large"`, etc.).           | `Size::XXLarge` |
+| `duration`  | `u64`          | Animation duration for expand/collapse transitions, in milliseconds.      | `600`           |
 
 ### Styling Props
 

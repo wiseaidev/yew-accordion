@@ -4,6 +4,12 @@ use yew::prelude::*;
 /// Properties for the Accordion component.
 #[derive(Properties, Clone, PartialEq)]
 pub struct AccordionProps {
+    /// A state handle that manages the expansion state of the accordion.
+    ///
+    /// This property determines whether the accordion is initially expanded or collapsed.
+    /// It is a required prop and should be used to toggle the accordion's expanded state.
+    pub expand: UseStateHandle<bool>,
+
     /// The content to be displayed when the accordion is expanded.
     ///
     /// Defines the HTML content shown when the accordion is expanded. Defaults to an empty string.
@@ -124,12 +130,13 @@ pub struct AccordionProps {
 /// A Yew component for displaying an accordion-style UI element that can be expanded or collapsed.
 /// This `Accordion` component supports customizing its appearance, animations, and behavior during
 /// expansion or collapse. The component can hold content within a collapsible section, which can be
-/// expanded or collapsed by the user. It also supports various customization options, such as custom 
+/// expanded or collapsed by the user. It also supports various customization options, such as custom
 /// styles, classes, and accessibility features like ARIA attributes.
 ///
 /// # Properties
 /// The component uses the `AccordionProps` struct for its properties. Key properties include:
 ///
+/// - **expand**: A state handle that manages the expansion state of the accordion (`UseStateHandle<bool>`).
 /// - **expanded**: The content to display when the accordion is expanded (`Html`). Default: `""`.
 /// - **collapsed**: The content to display when the accordion is collapsed (`Html`). Default: `""`.
 /// - **children**: The child elements inside the accordion (`Html`). Default: `""`.
@@ -165,8 +172,14 @@ pub struct AccordionProps {
 ///
 /// #[function_component(App)]
 /// pub fn app() -> Html {
+///     let expand = use_state(|| false);
+///
 ///     html! {
-///         <Accordion expanded="This is expanded content" collapsed="This is collapsed content" />
+///         <Accordion
+///             expand={expand}
+///             expanded="This is expanded content"
+///             collapsed="This is collapsed content"
+///         />
 ///     }
 /// }
 /// ```
@@ -178,8 +191,11 @@ pub struct AccordionProps {
 ///
 /// #[function_component(App)]
 /// pub fn app() -> Html {
+///     let expand = use_state(|| false);
+///
 ///     html! {
 ///         <Accordion
+///             expand={expand}
 ///             expanded="This is expanded content"
 ///             collapsed="This is collapsed content"
 ///             style="background-color: lightblue; padding: 10px"
@@ -197,6 +213,8 @@ pub struct AccordionProps {
 ///
 /// #[function_component(App)]
 /// pub fn app() -> Html {
+///     let expand = use_state(|| false);
+///
 ///     let will_open = Callback::from(|_| log::info!("Accordion is about to open"));
 ///     let did_open = Callback::from(|_| log::info!("Accordion has opened"));
 ///     let will_close = Callback::from(|_| log::info!("Accordion is about to close"));
@@ -204,6 +222,7 @@ pub struct AccordionProps {
 ///
 ///     html! {
 ///         <Accordion
+///             expand={expand}
 ///             expanded="This is expanded content"
 ///             collapsed="This is collapsed content"
 ///             will_open={will_open}
@@ -227,9 +246,8 @@ pub struct AccordionProps {
 /// - The `size` property allows customization of the accordion's size (e.g., `Size::Small`, `Size::Medium`, `Size::Large`).
 #[function_component]
 pub fn Accordion(props: &AccordionProps) -> Html {
-    let is_expanded = use_state(|| false);
-    let props = props.clone();
-    let is_expanded_value = *is_expanded;
+    let is_expanded = &props.expand;
+    let is_expanded_value = **is_expanded;
 
     let toggle_expansion = {
         let is_expanded = is_expanded.clone();
@@ -326,7 +344,7 @@ pub struct ItemProps {
     ///
     /// Defines the alignment of content within the accordion item, such as left, right, or center. Defaults to `Align::Left`.
     #[prop_or_default]
-    pub alignment: Align,
+    pub align: Align,
 
     /// The title of the Item.
     ///
@@ -349,7 +367,7 @@ pub fn Item(props: &ItemProps) -> Html {
             class={props.class}
             style={format!(
                 "{} {}",
-                props.alignment.to_style(),
+                props.align.to_style(),
                 props.style
             )}
         >

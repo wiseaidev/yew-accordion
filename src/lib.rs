@@ -10,4 +10,7 @@ pub mod common;
 #[cfg(feature = "yew")]
 pub mod yew;
 
+#[cfg(feature = "dio")]
+pub mod dioxus;
+
 pub use common::{Align, Size};
