@@ -1,4 +1,4 @@
-# 📚 Accordion RS Yew Example
+# 📚 Accordion RS Dioxus Example
 
 ## 🛠️ Pre-requisites:
 
@@ -10,16 +10,10 @@
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
 
-1. **Install [`trunk`](https://trunkrs.dev/)**:
+1. Install [`Dioxus CLI`](https://dioxuslabs.com/learn/0.5/getting_started):
 
    ```sh
-   cargo install --locked trunk
-   ```
-
-1. **Add the Wasm target**:
-
-   ```sh
-   rustup target add wasm32-unknown-unknown
+   cargo install dioxus-cli
    ```
 
 ### 🪟 **Windows Users**
@@ -46,16 +40,10 @@
    sudo apt install build-essential pkg-config libudev-dev
    ```
 
-1. **Install `trunk`**:
+1. Install [`Dioxus CLI`](https://dioxuslabs.com/learn/0.5/getting_started):
 
    ```sh
-   cargo install --locked trunk
-   ```
-
-1. **Add the Wasm target**:
-
-   ```sh
-   rustup target add wasm32-unknown-unknown
+   cargo install dioxus-cli
    ```
 
 ## 🚀 Building and Running
@@ -69,16 +57,13 @@
 1. Navigate to the application directory.
 
    ```sh
-   cd accordion-rs/examples/yew
+   cd accordion-rs/examples/dioxus
    ```
 
 1. Run the client:
 
    ```sh
-   trunk serve --port 3000
+   dx serve --port 3000
    ```
 
-1. Uncomment this line:
-   https://github.com/opensass/accordion-rs/blob/a627aa2376ad792336f926ead85ace7c3b7e856d/examples/yew/index.html#L5
-
-Navigate to http://localhost:3000 to explore all available components.
+Navigate to http://localhost:3000 to explore the landing page.
