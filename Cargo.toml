@@ -36,6 +36,10 @@ incremental = false
 [badges]
 maintenance = { status = "actively-developed" }
 
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
 [dev-dependencies]
 log = "0.4.22"
 bump2version = "0.1.4"
