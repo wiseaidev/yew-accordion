@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🪶 Accordion RS
+# ↕️ Accordion RS
 
 [![Crates.io](https://img.shields.io/crates/v/accordion-rs)](https://crates.io/crates/accordion-rs)
 [![Crates.io Downloads](https://img.shields.io/crates/d/accordion-rs)](https://crates.io/crates/accordion-rs)
@@ -11,13 +11,15 @@
 
 [![Join our Discord](https://dcbadge.limes.pink/api/server/b5JbvHW5nv)](https://discord.gg/b5JbvHW5nv)
 
-![logo](./assets/logo.webp)
+<!-- absolute url for docs.rs cause assets is excluded from crate -->
+![logo](https://raw.githubusercontent.com/opensass/accordion-rs/refs/heads/main/assets/logo.webp)
 
 </div>
 
 ## 🎬 Demo
 
-![accordion-rs-demo](./assets/demo.gif)
+<!-- absolute url for docs.rs cause assets is excluded from crate -->
+![accordion-rs-demo](https://raw.githubusercontent.com/opensass/accordion-rs/refs/heads/main/assets/demo.gif)
 
 | Framework | Live Demo |
 | --- | --- |
@@ -39,17 +41,20 @@ The following are some reasons why Accordion RS is a fantastic addition to your 
 1. **🧑‍💻 Easy Integration**: Works seamlessly with modern Wasm frameworks like Yew, Dioxus, and Leptos.
 1. **🧩 Accessibility**: Optionally include ARIA attributes to make your accordion accessible to screen readers.
 
-## Yew Usage
+## Y Yew Usage
 
-Refer to [our guide](YEW.md) to integrate this component into your Yew app.
+<!-- absolute url for docs.rs cause YEW.md is not included in crate -->
+Refer to [our guide](https://github.com/opensass/accordion-rs/blob/main/YEW.md) to integrate this component into your Yew app.
 
 ## 🧬 Dioxus Usage
 
-Refer to [our guide](DIOXUS.md) to integrate this component into your Dioxus app.
+<!-- absolute url for docs.rs cause DIOXUS.md is not included in crate -->
+Refer to [our guide](https://github.com/opensass/accordion-rs/blob/main/DIOXUS.md) to integrate this component into your Dioxus app.
 
 ## 🌱 Leptos Usage
 
-Refer to [our guide](LEPTOS.md) to integrate this component into your Leptos app.
+<!-- absolute url for docs.rs cause LEPTOS.md is not included in crate -->
+Refer to [our guide](https://github.com/opensass/accordion-rs/blob/main/LEPTOS.md) to integrate this component into your Leptos app.
 
 ## 🤝 Contributions
 
