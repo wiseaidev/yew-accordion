@@ -26,7 +26,7 @@ pub struct AccordionProps {
     ///
     /// Any child HTML content that will be displayed within the accordion container. Defaults to an empty string.
     #[prop_or_default]
-    pub children: Html,
+    pub children: ChildrenWithProps<List>,
 
     /// Size of the accordion.
     ///
@@ -309,7 +309,7 @@ pub fn Accordion(props: &AccordionProps) -> Html {
                             props.content_style
                         )}
                     >
-                        { props.children.clone() }
+                    { for props.children.iter() }
                     </div>
                 }
             } else {
@@ -425,7 +425,7 @@ pub struct ListProps {
     ///
     /// Defines the child elements (list items) that will be displayed inside the list. Defaults to an empty string.
     #[prop_or_default]
-    pub children: Html,
+    pub children: Children,
 
     /// Additional inline styles for the List.
     ///
@@ -444,6 +444,8 @@ pub struct ListProps {
 #[function_component]
 pub fn List(props: &ListProps) -> Html {
     html! {
-        <ul class={props.class} style={props.style}>{ props.children.clone() }</ul>
+        <ul class={props.class} style={props.style}>
+            { for props.children.iter() }
+        </ul>
     }
 }
